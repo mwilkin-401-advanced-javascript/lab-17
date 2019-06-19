@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * server module
+ * @module server
+ */
+
+
 const net = require('net');
 
 const port = process.env.PORT || 3001;
@@ -18,6 +24,12 @@ server.on('connection', (socket) => {
   });
 });
 
+/**
+* @function dispatchEvent 
+* @param buffer - buffer being received to write
+* @desc sends event to logger
+ */
+
 let dispatchEvent = (buffer) => {
   let text = buffer.toString().trim();
   let payload = JSON.parse(text);
@@ -26,5 +38,6 @@ let dispatchEvent = (buffer) => {
     // socketPool[socket].write(`${event} ${text}`);
   }
 };
+
 
 module.exports = dispatchEvent;

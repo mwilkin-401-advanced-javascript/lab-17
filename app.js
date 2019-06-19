@@ -37,6 +37,13 @@ const alterFile = (file) => {
     });
 };
 
+/**
+* @function convertCase 
+* @param data - data being altered
+* @desc changes data to uppercase
+ */
+
+
 
 /**
 * @function convertCase 
@@ -66,9 +73,7 @@ function readFile(file) {
       event.emit('log', 'readFile', `${file} saved`);
       resolve(data.toString());
     });
-
   });
-  
 }
 
 /**
