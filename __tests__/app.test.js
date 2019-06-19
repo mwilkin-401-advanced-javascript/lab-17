@@ -1,7 +1,8 @@
 'use strict';
 
 const app = require('../app.js');
-const server = require('../server.js');
+
+jest.mock('fs');
 
 describe('convertCase', () => {
   it('should convert a string to uppercase', () => {
