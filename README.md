@@ -12,14 +12,14 @@ Create an event driven messaging server
 
 * [Submission PR](https://github.com/mwilkin-401-advanced-javascript/lab-17/pull/1)
 
-* [Travis](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-17
+* [Travis](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-17)
 
 
 ### Documentation
 
 * [JSDOC] put `index.html` in an open web browser
 
-* [UML] <img src="./assets/lab17_UML.jpg">
+* [UML] <img src="./assets/Lab17_UML.jpg">
 
 #### Dependencies
 * jest
