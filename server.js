@@ -26,7 +26,7 @@ server.on('connection', (socket) => {
 
 /**
 * @function dispatchEvent 
-* @param buffer - buffer being received to write
+* @param {String} buffer - buffer being received to write
 * @desc sends event to logger
  */
 

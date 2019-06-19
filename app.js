@@ -43,14 +43,6 @@ const alterFile = (file) => {
 * @desc changes data to uppercase
  */
 
-
-
-/**
-* @function convertCase 
-* @param data - data being altered
-* @desc changes data to uppercase
- */
-
 function convertCase(data){
   return data.toUpperCase();
 }
@@ -101,4 +93,4 @@ let file = process.argv.slice(2).shift();
 alterFile(file);
 
 
-module.exports = {readFile, writeFile, convertCase, payload};
+module.exports = {readFile, writeFile, convertCase};
