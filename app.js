@@ -34,6 +34,9 @@ const alterFile = (file) => {
   readFile(file)
     .then(data => {
       writeFile(file, convertCase(data));
+    })
+    .catch(err => {
+      console.error('error in alterFile');
     });
 };
 
@@ -60,9 +63,10 @@ function readFile(file) {
   return new Promise((resolve, reject) => {
     fs.readFile(file, (err, data) => {
       if(err){
-        event.emit('error', 'readFile error', `${err}`);
+        reject(err);
+        // event.emit('error', 'readFile error', `${err}`);
       }
-      event.emit('log', 'readFile', `${file} saved`);
+      // event.emit('log', 'readFile', `${file} saved`);
       resolve(data.toString());
     });
   });
@@ -77,15 +81,18 @@ function readFile(file) {
 
 function writeFile(file, text) {
   return new Promise((resolve, reject) => {
-
     fs.writeFile(file, Buffer.from(text), (err, data) => {
       if(err){
-        event.emit('error', 'writeFile error', `${err}`);
+        reject(err);
+        // event.emit('error', 'writeFile error', `${err}`);
       }
-      resolve(event.emit('log', 'writeFile', `${file} saved`));
+      resolve(client.write(file('written file saved')));
+      // resolve(event.emit('log', 'writeFile', `${file} saved`));
     });
   });
 }
+
+
 
 
 
