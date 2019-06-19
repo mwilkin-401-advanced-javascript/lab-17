@@ -36,9 +36,15 @@ Exported Values and Methods
 
 ### Setup
 
-Running the app
+#### Running the app
 
-`npm start`
+* in 3 separate terminal shells in the following order
+
+* `nodemon server.js`
+
+* `nodemon logger.js`
+
+* `node app.js (filename)`
 
 ### Tests
 How do you run tests?
