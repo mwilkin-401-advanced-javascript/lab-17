@@ -12,6 +12,7 @@ const port = process.env.PORT || 3001;
 const server = net.createServer();
 
 server.listen(port, () => console.log(`Server up on ${port}`) );
+server.on('error', handleError);
 
 let socketPool = {};
 
@@ -39,5 +40,14 @@ let dispatchEvent = (buffer) => {
   }
 };
 
+/**
+ * This function logs server connection errors.
+ * @function
+ * @name handleError
+ * @param err {object} An error
+ **/
+function handleError(err) {
+  console.error(`server error: ${err.message}`);
+}
 
 module.exports = dispatchEvent;

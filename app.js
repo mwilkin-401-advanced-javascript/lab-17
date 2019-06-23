@@ -67,7 +67,7 @@ function readFile(file) {
         // event.emit('error', 'readFile error', `${err}`);
       }
       // event.emit('log', 'readFile', `${file} saved`);
-      resolve(data.toString());
+      else resolve(data.toString());
     });
   });
 }
@@ -93,11 +93,8 @@ function writeFile(file, text) {
 }
 
 
-
-
-
 let file = process.argv.slice(2).shift();
 alterFile(file);
 
 
-module.exports = {readFile, writeFile, convertCase};
+// module.exports = readFile, writeFile, convertCase;

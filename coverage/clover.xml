@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1560919899412" clover="3.2.0">
-  <project timestamp="1560919899413" name="All files">
-    <metrics statements="22" coveredstatements="13" conditionals="4" coveredconditionals="0" methods="11" coveredmethods="5" elements="37" coveredelements="18" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+<coverage generated="1561134813743" clover="3.2.0">
+  <project timestamp="1561134813743" name="All files">
+    <metrics statements="22" coveredstatements="12" conditionals="4" coveredconditionals="0" methods="11" coveredmethods="4" elements="37" coveredelements="16" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
     <file name="app.js" path="/Users/MVW/devstation/401/lab-17/app.js">
-      <metrics statements="22" coveredstatements="13" conditionals="4" coveredconditionals="0" methods="11" coveredmethods="5"/>
+      <metrics statements="22" coveredstatements="12" conditionals="4" coveredconditionals="0" methods="11" coveredmethods="4"/>
       <line num="8" count="1" type="stmt"/>
       <line num="10" count="1" type="stmt"/>
       <line num="12" count="1" type="stmt"/>
@@ -11,7 +11,7 @@
       <line num="33" count="1" type="stmt"/>
       <line num="34" count="1" type="stmt"/>
       <line num="36" count="0" type="stmt"/>
-      <line num="39" count="1" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
       <line num="50" count="1" type="stmt"/>
       <line num="63" count="1" type="stmt"/>
       <line num="64" count="1" type="stmt"/>

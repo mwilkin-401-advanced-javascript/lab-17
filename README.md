@@ -1,6 +1,6 @@
 # Lab 17 TCP Server / Message Application
 
-[![Build Status](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-17.svg?branch=dev)](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-16)
+[![Build Status](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-17.svg?branch=dev)](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-17)
 
 ### Author: Matt Wilkin
 
