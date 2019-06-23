@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1561134813743" clover="3.2.0">
-  <project timestamp="1561134813743" name="All files">
-    <metrics statements="22" coveredstatements="12" conditionals="4" coveredconditionals="0" methods="11" coveredmethods="4" elements="37" coveredelements="16" complexity="0" loc="22" ncloc="22" packages="1" files="1" classes="1"/>
+<coverage generated="1561318741298" clover="3.2.0">
+  <project timestamp="1561318741298" name="All files">
+    <metrics statements="31" coveredstatements="15" conditionals="6" coveredconditionals="0" methods="14" coveredmethods="3" elements="51" coveredelements="18" complexity="0" loc="31" ncloc="31" packages="1" files="2" classes="2"/>
     <file name="app.js" path="/Users/MVW/devstation/401/lab-17/app.js">
-      <metrics statements="22" coveredstatements="12" conditionals="4" coveredconditionals="0" methods="11" coveredmethods="4"/>
+      <metrics statements="21" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="11" coveredmethods="3"/>
       <line num="8" count="1" type="stmt"/>
       <line num="10" count="1" type="stmt"/>
       <line num="12" count="1" type="stmt"/>
@@ -12,7 +12,7 @@
       <line num="34" count="1" type="stmt"/>
       <line num="36" count="0" type="stmt"/>
       <line num="39" count="0" type="stmt"/>
-      <line num="50" count="1" type="stmt"/>
+      <line num="50" count="0" type="stmt"/>
       <line num="63" count="1" type="stmt"/>
       <line num="64" count="1" type="stmt"/>
       <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -23,9 +23,21 @@
       <line num="85" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="86" count="0" type="stmt"/>
       <line num="89" count="0" type="stmt"/>
-      <line num="99" count="1" type="stmt"/>
-      <line num="100" count="1" type="stmt"/>
-      <line num="103" count="1" type="stmt"/>
+      <line num="96" count="1" type="stmt"/>
+      <line num="97" count="1" type="stmt"/>
+    </file>
+    <file name="logger.js" path="/Users/MVW/devstation/401/lab-17/logger.js">
+      <metrics statements="10" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="23" count="0" type="stmt"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="32" count="0" type="stmt"/>
     </file>
   </project>
 </coverage>
