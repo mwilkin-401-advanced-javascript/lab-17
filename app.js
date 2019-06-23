@@ -1,100 +1,79 @@
 'use strict';
 
-/**
- * app module
- * @module app
- */
-
 const net = require('net');
-
+const PORT = process.env.PORT || 3001;
+const HOST = process.env.HOST || 'localhost';
 const client = new net.Socket();
 
-const fs = require('fs');
+const read = require('./lib/read.js');
+const uppercase = require('./lib/uppercase.js');
+const write = require('./lib/write.js');
 
-client.connect(3001, 'localhost', () => console.log('Socket in app.js created!'));
+// Connect to the TCP socket
+client.connect(PORT, HOST, handleConnect);
 
-// const alterFile = (file) => {
-//   fs.readFile( file, (err, data) => {
-//     if(err) { throw err; }
-//     let text = data.toString().toUpperCase();
-//     fs.writeFile( file, Buffer.from(text), (err, data) => {
-//       if(err) { throw err; }
-//       console.log(`${file} saved`);
-//     });
-//   });
-// };
+// Connection error handling
+client.on('error', handleError);
 
 /**
-* @function alterFile 
-* @param file - file being altered
-* @desc calls readFile and writeFile
+ * This function reads a file and replaces its contents with
+ * uppercased letters. It sends an object to a connected TCP socket
+ * on completion or error and disconnects from the socket.
+ * @function
+ * @name alterFile
+ * @param file {path} The path to a file on the filesystem
  */
-
-const alterFile = (file) => {
-  readFile(file)
-    .then(data => {
-      writeFile(file, convertCase(data));
+const alterFile = file => {
+  read(file)
+    .then(uppercase)
+    .then(buffer => write(file, buffer))
+    .then(() => {
+      const save = JSON.stringify({ event: 'save', payload: file });
+      client.write(save);
+      client.end(handleClose);
     })
     .catch(err => {
-      console.error('error in alterFile');
+      const error = JSON.stringify({ event: 'error', payload: file, message: err.message });
+      client.write(error);
+      client.end(handleClose);
     });
 };
 
-/**
-* @function convertCase 
-* @param data - data being altered
-* @desc changes data to uppercase
- */
-
-function convertCase(data){
-  return data.toUpperCase();
-}
-
-/**
-* @function readFile 
-* @param file - file being read from
-* @param err - file being altered
-* @param data - data being altered
-* @desc calls readFile and writeFile
- */
-
-
-function readFile(file) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(file, (err, data) => {
-      if(err){
-        reject(err);
-        // event.emit('error', 'readFile error', `${err}`);
-      }
-      // event.emit('log', 'readFile', `${file} saved`);
-      else resolve(data.toString());
-    });
-  });
-}
-
-/**
-* @function writeFile 
-* @param file - file being writen to
-* @param text - text being writen after altered
-* @desc calls readFile and writeFile
- */
-
-function writeFile(file, text) {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(file, Buffer.from(text), (err, data) => {
-      if(err){
-        reject(err);
-        // event.emit('error', 'writeFile error', `${err}`);
-      }
-      resolve(client.write(file('written file saved')));
-      // resolve(event.emit('log', 'writeFile', `${file} saved`));
-    });
-  });
-}
-
-
-let file = process.argv.slice(2).shift();
+const file = process.argv.slice(2).shift();
 alterFile(file);
 
+// Fallback close handler
+client.on('close', handleClose);
 
-// module.exports = readFile, writeFile, convertCase;
+/**
+ * This function logs a message to the console
+ * when the TCP connection is established.
+ * @function
+ * @name handleConnect
+ **/
+function handleConnect() {
+  console.log(`app: Connection established...`);
+}
+
+/**
+ * This function logs client connection errors.
+ * @function
+ * @name handleError
+ * @param err {object} An error
+ **/
+function handleError(err) {
+  console.error(`app error: ${err.message}`);
+}
+
+/**
+ * This function logs a message to the console
+ * when the TCP connection is closed.
+ * @function
+ * @name handleClose
+ **/
+function handleClose() {
+  console.log(`app: Connection closed...`);
+}
+
+// Export
+module.exports = { alterFile, handleConnect, handleError, handleClose };
